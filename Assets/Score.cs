@@ -5,15 +5,12 @@ using UnityEngine.UI;
 
 public class Score : MonoBehaviour {
 
-    GameObject scoreText;//テキスト
-
-    int score = 0;//スコア
-
-    
+    GameObject scoreText;//テキスト 
 
     // Use this for initialization
     void Start () {
         this.scoreText = GameObject.Find("ScoreText");//オブジェクト
+
 
     }
 
@@ -25,28 +22,27 @@ public class Score : MonoBehaviour {
     {
         if (tag == "SmallStarTag")
         {
-            score += 10;
-
+            scoreText.GetComponent<scoreScript>().AddScore(10);//コンポーネント取得、引数でポイント
         }
         else if (tag == "LargeStarTag")
         {
-            score += 20;
-
+            scoreText.GetComponent<scoreScript>().AddScore(20);
         }
         else if (tag == "SmallCloudTag")
         {
-            score += 50;
-
+            scoreText.GetComponent<scoreScript>().AddScore(40);
         }
         else if (tag == "LargeCloudTag")
         {
-            score += 100;
+            scoreText.GetComponent<scoreScript>().AddScore(60);
         }
         else
         {
-            score += 0;
+            
         }
-
-        this.scoreText.GetComponent<Text>().text = "" + score;//テキスト
     }
+
+
+
+    
 }
